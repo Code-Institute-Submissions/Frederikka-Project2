@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+<img id="heading-logo" src="assets/images/—Pngtree—head side cutaway blue brain_4644416.png" alt=""><h1 class="heading">Brain-Train</h1>
+    <div class="begin-screen">
+        <br>
+        <button id="begin-button">Begin</button>
+    </div>
+    <div class="quiz-area">
+        <div id="question-area-full">
+            <div class="question-number-area">
+            </div>
+            <hr>
+            <div id="question-area">
+            </div>
+            <div>
+                <form>
+                    <p>
+                        <input type="radio" name="answer" value="0" id="radio0">
+                        <span id="1"></span>
+                    </p>
+                    <p>
+                        <input type="radio" name="answer" value="1" id="radio1">
+                        <span id="2"></span>
+                    </p>
+                    <p>
+                        <input type="radio" name="answer" value="2" id="radio2">
+                        <span id="3"></span>
+                    </p>
+                    <p>
+                        <input type="radio" name="answer" value="3" id="radio3">
+                        <span id="4"></span>
+                    </p>             
+                    <p>
+                    <input type="button" value="submit" id="submit" disabled>
+                    </p>
+
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <p class="scores">Correct Answers: <span id="correct">0</span></p>
+            <p class="scores">Incorrect answers: <span id="incorrect">0</span></p>
+        </div>
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
