@@ -25,7 +25,6 @@ heading {
 .quiz-area {
     background-color: #209BA5;
     box-sizing: border-box;
-    width: 400px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -34,15 +33,16 @@ heading {
 }
 
 .question-number-area {
-    text-align: left;
+    text-align: center;
 }
 
 #question-area {
-    text-align: left;
+    text-align: center;
 }
 
 .scores {
     padding: 2px;
+    font-weight: bold;
 }
 
 .scores-area {
@@ -50,17 +50,9 @@ heading {
 }
 
 #score {
-    color: green;
-    font-weight: bold;
     padding: 5px;
 }
 
-#incorrect {
-    color: red;
-    font-weight: bold;
-    padding: 5px;
-    
-}
 
 #begin-button {
     font-size: 1.2em;
@@ -68,9 +60,8 @@ heading {
 }
 /* --- Media queries */
 
-@media (max-width: 414px) {
-        .quiz-area {
-            margin: 10px;
-            padding: 5px;
-        }
+@media (min-width: 700px) {
+    .quiz-area {
+        max-width: 50%;
     }
+}

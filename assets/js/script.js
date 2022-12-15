@@ -1,12 +1,11 @@
 /*jshint esversion: 6 */
-const beginScreen = document.querySelector(".begin-screen");
+
 const beginButton = document.getElementById("begin-button");
 const quizArea = document.querySelector(".quiz-area");
 const nextQuestion = document.querySelector(".question-number-area");
 const questionHTML = document.getElementById("question-area");
 const questionFullHTML = document.getElementById("question-area-full");
 const submitButton = document.getElementById("submit");
-const scoresArea = document.querySelector(".scores-area");
 const option1 = document.getElementById("1");
 const option2 = document.getElementById("2");
 const option3 = document.getElementById("3");
@@ -18,11 +17,16 @@ const radioButton1HTML = document.getElementById("radio1");
 const radioButton2HTML = document.getElementById("radio2");
 const radioButton3HTML = document.getElementById("radio3");
 
-let selectedValue;
+let selectedValue; 
 let currentQuestionNumber = 0;
 const totalQuestions = 3;
 let correctAnswers = 0;
 let incorrectAnswers = 0;
+
+
+/* 
+https://codepen.io/Coding-Artist/pen/dymPrJa
+credit for the use of the quizarray */
 
 const questionsArray = [
     {
@@ -43,7 +47,7 @@ const questionsArray = [
         options: ["1505", "1605", "1705", "1809"],
         correct: "1605"
     }
-]
+];
 
 beginButton.addEventListener("click", (event) => {
     quizAreaShow();
@@ -70,7 +74,7 @@ beginButton.addEventListener("click", (event) => {
   }); 
   
   submitButton.addEventListener("click", (event) => {
-    answerText = questionsArray[currentQuestionNumber].options[selectedValue]
+    let answerText = questionsArray[currentQuestionNumber].options[selectedValue];
   
     if (checkAnswer(currentQuestionNumber, answerText))
     {
@@ -90,6 +94,7 @@ beginButton.addEventListener("click", (event) => {
     else
     {
       questionFullHTML.innerHTML = "Well done!";
+      
     }
   });
   
@@ -108,19 +113,20 @@ function quizAreaShow() {
   }
   
   function checkAnswer(questionNumber, answerText) {
-    correctAnswer = questionsArray[questionNumber].correct;
-    isCorrect = (answerText == correctAnswer)
-    console.log("Answer: " + answerText + ", Correct Answer: " + correctAnswer + ", Correct? " + isCorrect)
+    let correctAnswer = questionsArray[questionNumber].correct;
+    let isCorrect = (answerText == correctAnswer);
+    console.log("Answer: " + answerText + ", Correct Answer: " + correctAnswer + ", Correct? " + isCorrect);
     return isCorrect;
   }
   
   function loadQuestion(questionNumber) {
+    document.getElementById("myformid").reset();
     questionHTML.innerHTML = questionsArray[questionNumber].question;
     option1.innerHTML = questionsArray[questionNumber].options[0];
     option2.innerHTML = questionsArray[questionNumber].options[1];
     option3.innerHTML = questionsArray[questionNumber].options[2];
     option4.innerHTML = questionsArray[questionNumber].options[3];
-    if (questionNumber < totalQuestions - 1)
+    if (questionNumber <= totalQuestions - 1)
     {
       nextQuestion.innerHTML= "Question " + (questionNumber + 1) + " of " + totalQuestions + ":";
     }
