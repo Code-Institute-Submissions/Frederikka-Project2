@@ -45,6 +45,56 @@ const questionsArray = [
     }
 ]
 
+beginButton.addEventListener("click", (event) => {
+    quizAreaShow();
+  }); 
+  
+  radioButton0HTML.addEventListener("click", (event) => {
+    selectedValue = 0;
+    submitButton.disabled = false;
+  }); 
+  
+  radioButton1HTML.addEventListener("click", (event) => {
+    selectedValue = 1;
+    submitButton.disabled = false;
+  }); 
+  
+  radioButton2HTML.addEventListener("click", (event) => {
+    selectedValue = 2;
+    submitButton.disabled = false;
+  }); 
+  
+  radioButton3HTML.addEventListener("click", (event) => {
+    selectedValue = 3;
+    submitButton.disabled = false;
+  }); 
+  
+  submitButton.addEventListener("click", (event) => {
+    answerText = questionsArray[currentQuestionNumber].options[selectedValue]
+  
+    if (checkAnswer(currentQuestionNumber, answerText))
+    {
+      correctAnswers++;
+    }
+    else
+    {
+      incorrectAnswers++;
+    }
+    correctHTML.innerHTML = correctAnswers;
+    incorrectHTML.innerHTML = incorrectAnswers;
+    if (currentQuestionNumber < totalQuestions - 1)
+    {
+      currentQuestionNumber++;
+      loadQuestion(currentQuestionNumber);
+    }
+    else
+    {
+      questionFullHTML.innerHTML = "Well done!";
+    }
+  });
+  
+  
+
 function quizAreaShow() {
     console.log('quiz has loaded');
     beginButton.style.display = 'none';
