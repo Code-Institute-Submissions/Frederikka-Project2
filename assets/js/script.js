@@ -45,4 +45,36 @@ const questionsArray = [
     }
 ]
 
-
+function quizAreaShow() {
+    console.log('quiz has loaded');
+    beginButton.style.display = 'none';
+    quizArea.style.display = 'block';
+    startQuiz();
+  }
+  
+  function startQuiz() {
+    console.log('now we start the quiz...');
+    loadQuestion(0);
+  }
+  
+  function checkAnswer(questionNumber, answerText) {
+    correctAnswer = questionsArray[questionNumber].correct;
+    isCorrect = (answerText == correctAnswer)
+    console.log("Answer: " + answerText + ", Correct Answer: " + correctAnswer + ", Correct? " + isCorrect)
+    return isCorrect;
+  }
+  
+  function loadQuestion(questionNumber) {
+    questionHTML.innerHTML = questionsArray[questionNumber].question;
+    option1.innerHTML = questionsArray[questionNumber].options[0];
+    option2.innerHTML = questionsArray[questionNumber].options[1];
+    option3.innerHTML = questionsArray[questionNumber].options[2];
+    option4.innerHTML = questionsArray[questionNumber].options[3];
+    if (questionNumber < totalQuestions - 1)
+    {
+      nextQuestion.innerHTML= "Question " + (questionNumber + 1) + " of " + totalQuestions + ":";
+    }
+  }
+  
+  
+  
